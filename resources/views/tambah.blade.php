@@ -41,10 +41,10 @@
   
     const form = document.getElementById('tambah');
     const formData = new FormData(form);
-    // console.log(formData);
+    console.log(formData);
     e.preventDefault();
     $.ajax({
-        url: 'http://coffee-website.com/api/product/tambah',
+        url: 'http://127.0.0.1:8000/api/product/tambah',
         type: 'POST',
         enctype: 'multipart/form-data',
         data: formData,
