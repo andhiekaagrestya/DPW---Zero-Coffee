@@ -63,3 +63,12 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 # DPW---Zero-Coffee
+
+How To Access :
+1. Composer Install
+2. PHP artisan key:generate
+3. Copy .env.example -> rename to .env
+4. Customize your database
+5. PHP artisan migrate
+6. PHP artisan serve
+7. PHP artisan db:seed
