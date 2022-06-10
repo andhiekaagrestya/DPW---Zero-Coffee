@@ -71,3 +71,4 @@ How To Access :
 4. Customize your database
 5. PHP artisan migrate
 6. PHP artisan serve
+7. PHP artisan db:seed
