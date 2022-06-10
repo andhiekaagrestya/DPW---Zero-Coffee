@@ -23,7 +23,7 @@
 
 <header class="header">
 
-    <a href="#" class="logo">
+    <a href="/#" class="logo">
         <img src="images/logo.png" alt="">
     </a>
 

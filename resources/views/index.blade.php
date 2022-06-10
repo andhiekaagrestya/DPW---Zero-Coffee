@@ -94,7 +94,7 @@
     <div class="content">
         <h3>fresh coffee in the morning</h3>
         <p>It doesn’t matter where you are from or how you feel, there is always peace in a strong cup of coffee.</p>
-        <a href="#" class="btn">get yours now</a>
+        <a href="#products" class="btn">get yours now</a>
     </div>
 
 </section>
@@ -171,7 +171,7 @@
             <img src="images/quote-img.png" alt="" class="quote">
             <p>Harganya cukup terjangkau</p>
             <img src="images/pic-1.png" class="user" alt="">
-            <h3>john deo</h3>
+            <h3>Dika</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -185,7 +185,7 @@
             <img src="images/quote-img.png" alt="" class="quote">
             <p>Kopinya sangat enak</p>
             <img src="images/pic-2.png" class="user" alt="">
-            <h3>john deo</h3>
+            <h3>Dian</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -199,7 +199,7 @@
             <img src="images/quote-img.png" alt="" class="quote">
             <p>Promonya sangat menarik</p>
             <img src="images/pic-3.png" class="user" alt="">
-            <h3>john deo</h3>
+            <h3>Ansah</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
