@@ -37,11 +37,10 @@
 @section('script')
 <script>
   $("#tambah").submit(function(e){
-    console.log("ok")
   
     const form = document.getElementById('tambah');
     const formData = new FormData(form);
-    console.log(formData);
+
     e.preventDefault();
     $.ajax({
         url: 'http://127.0.0.1:8000/api/product/tambah',
@@ -51,7 +50,6 @@
         processData: false,
         contentType: false,
         success: function(res){
-            console.log(res);
             swal({ icon: 'success',
                             title: 'success...',
                             text: res.message,

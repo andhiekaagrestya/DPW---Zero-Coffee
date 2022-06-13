@@ -46,7 +46,6 @@
         url: 'http://127.0.0.1:8000/api/product/'+{{ $id }},
         type: 'GET',
         success: function(res){
-            // console.log(res)
             $("#name").val(res.data.name);
             $("#price").val(res.data.price);
             $("#description").val(res.data.description);
@@ -55,11 +54,8 @@
     })
 
     $("#edit").submit(function(e){
-        console.log("ok")
-
         const form = document.getElementById('edit');
         const formData = new FormData(form);
-        // console.log(formData);
         e.preventDefault();
         $.ajax({
             url: 'http://127.0.0.1:8000/api/product/update',
@@ -69,7 +65,6 @@
             processData: false,
             contentType: false,
             success: function(res){
-                console.log(res);
                 swal({ icon: 'success',
                                 title: 'success...',
                                 text: res.message,

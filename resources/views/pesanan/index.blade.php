@@ -37,7 +37,6 @@
                 url: 'http://127.0.0.1:8000/api/pesanan',
                 type: 'GET',
                 success: function(res){
-                    // console.log(res)
                     let no = 1
                     res.data.forEach(element => {
                         data += `                        <tr>
@@ -51,7 +50,6 @@
                                 </td>
                                 </tr>`;
                     });
-                    // console.log(data)
                     $("#data").html(data)
                 }
             });

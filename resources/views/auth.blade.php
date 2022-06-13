@@ -123,20 +123,14 @@ $("#login").submit(function(event){
 
   event.preventDefault();
   var data = $(this).serialize();
-  // console.log(data);
-  // console.log();
-  // let user = JsonConvert.SerializeObject(data)
   let email = $('#email').val();
-  // console.log(email);
 
   $.ajax({
       url: 'http://127.0.0.1:8000/api/login',
       type: 'post',
       data: data,
       success: function(response){
-          // if(re)
           if(response['message'] === 'Berhasil Login.'){
-              // console.log(response['token']);
               setCookie('email', email, 1);
               setCookie('token', response['token'], 1);
               swal({ icon: 'success',
@@ -150,7 +144,6 @@ $("#login").submit(function(event){
                   icon: 'error',
                   title: 'Oops...',
                   text: response.message,
-                  // footer: '<a href="">Why do I have this issue?</a>'
               })
           }
       },
@@ -161,23 +154,16 @@ $("#login").submit(function(event){
 });
 
 $("#register").submit(function(event){
-console.log("ok");
 event.preventDefault();
 var data = $(this).serialize();
-// console.log(data);
-// console.log();
-// let user = JsonConvert.SerializeObject(data)
 let email = $('#email').val();
-// console.log(email);
 
 $.ajax({
     url: 'http://127.0.0.1:8000/api/register',
     type: 'post',
     data: data,
     success: function(response){
-        // if(re)
         if(response['message'] === 'Berhasil Daftar.'){
-            // console.log(response['token']);
             setCookie('email', email, 1);
             setCookie('token', response['token'], 1);
             swal({ icon: 'success',
@@ -191,7 +177,6 @@ $.ajax({
                 icon: 'error',
                 title: 'Oops...',
                 text: response.message,
-                // footer: '<a href="">Why do I have this issue?</a>'
             })
         }
     },
@@ -223,7 +208,6 @@ $("#daftar").submit(function(event){
   var patternEmail = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/g;
   
   if(!email.match(patternEmail) ){
-      console.log("ok");
       error += 'Format Email Anda salah...!\n';
   }
 
@@ -268,7 +252,6 @@ $("#daftar").submit(function(event){
                   }
                   $('#gmail').html(kosong);
               }else{
-                  console.log(response);
                   swal({ icon: 'success',
                   title: 'Success...',
                   text: "Akun Berhasil dibuat",
@@ -323,13 +306,13 @@ $("#update").submit(function(event){
           pwlama: pwlama,
           pwbaru: pw,
       }
-      console.log(data);
+
       $.ajax({
           url: "auth/update.php",
           type: "post",
           data: data ,
           success: function (response) {
-              console.log(response)
+
               $("#update")[0].reset()
               if(response == 9){
                   swal({ icon: 'error',

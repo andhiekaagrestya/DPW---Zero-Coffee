@@ -44,10 +44,8 @@
                 url: 'http://127.0.0.1:8000/api/pesanan/detail/{{$id}}',
                 type: 'GET',
                 success: function(res){
-                    console.log(res)
                     let no = 1
                     res.data.forEach(element => {
-                        console.log(element)
                         data += `                        <tr>
                                 <th scope="row">${no++}</th>
                                 <td>${element.name}</td>
@@ -58,7 +56,6 @@
                                 </tr>`;
                         total += element.price * element.amount
                     });
-                    // console.log(data)
                     $("#data").html(data)
                     $("#total").html(total)
                 }

@@ -44,9 +44,7 @@
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
-                    // console.log(result)
                     if(result){
-                        // console.log(id);
                         $.ajax({
                             url: 'http://127.0.0.1:8000/api/product/delete/'+id,
                             type: 'GET',
@@ -68,7 +66,6 @@
                 url: 'http://127.0.0.1:8000/api/product',
                 type: 'GET',
                 success: function(res){
-                    // console.log(res)
                     let no = 1
                     res.data.forEach(element => {
                         data += `                        <tr>
@@ -82,7 +79,6 @@
                                 </td>
                                 </tr>`;
                     });
-                    // console.log(data)
                     $("#data").html(data)
                 }
             });

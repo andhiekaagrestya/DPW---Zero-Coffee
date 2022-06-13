@@ -232,12 +232,10 @@
         return "";
     }
     let getProduct = async () => {
-        // let data = await fetch(BASEURL+'product')
         $.ajax({
             url: BASEURL+"product",
             type: 'GET',
             success: function(res) {
-                // console.log(res.data)
                 let data = ""
                 res.data.forEach(product => {
                     data += `<div class="box">
@@ -256,16 +254,13 @@
                             </div>`;
                 });
                 $("#data-product").html(data)
-                // alert(res);
             }
         });
     }
 
     let getCk = async () => {
         let isLogin = getCookie('token') != "" ? true : false;
-        console.log("ck")
         if(isLogin){
-            // let ck = "";
             let ck = "";
             $.ajax({
                 url: BASEURL+'orders/checkout',
@@ -274,11 +269,9 @@
                     email: getCookie('email')
                 },
                 success: function(res){
-                    // console.log(res.data[0]);
                     let totals = 0
                     id = res.data[0].id
                     res.data[0].order_detail.forEach((row) =>{
-                        console.log(row.product[0].id)
                         ck += `<div class="row mt-3 align-items-center">
                     <div class="col-md-3">
                         <img src="{{ asset('${row.product[0].image}') }}" width="100%" alt="">
@@ -302,7 +295,6 @@
                 </div>`;
                         totals += parseInt(row.price);
                     });
-                    // console.log(ck)
                     $("#data").html(ck);
                     $("#inptotal").val(totals);
                     $("#total").html('Rp. '+totals)
@@ -360,7 +352,6 @@
     $(document).on('click', '#hapus', function(e){
         e.preventDefault();
         let id = $(this).data('id');
-        console.log(id);
 
         swal({
                 title: 'Are you sure?',
@@ -372,9 +363,7 @@
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
-                    // console.log(result)
                     if(result){
-                        // console.log(id);
                         $.ajax({
                             url: BASEURL+'orders/delete/'+id,
                             type: 'GET',
@@ -423,7 +412,6 @@
                         email: getCookie('email')
                     },
                     success: function(res){
-                        // console.log(res)
 
                         if(res.status){
                             swal({ icon: 'success',
@@ -435,7 +423,6 @@
                         }
                     }
                 })
-                // console.log(id)
             }
 
         }); 
@@ -448,7 +435,6 @@
     }
 
         $(document).on('click', '#logout', function(e){
-        console.log("ok")
         
         setCookie("email", "", -1)
         swal({ icon: 'success',
@@ -458,9 +444,6 @@
                             window.location="/sign"
                         });
     });
-
-
-
 
 </script>
 

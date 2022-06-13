@@ -129,21 +129,17 @@
 
 <!-- menu section starts  -->
 
-
-<!-- menu section ends -->
-
 <section class="products" id="products">
 
     <h1 class="heading"> our <span>products</span> </h1>
 
     <div class="box-container" id="data-product">
 
-       
-
     </div>
 
 </section>
 
+<!-- menu section ends -->
 
 <section class="promo" id="promo">
     <h1 class="heading"> our <span>promo</span> </h1>
@@ -159,6 +155,7 @@
     </div>
 
 </section>
+
 <!-- review section starts  -->
 
 <section class="review" id="review">
@@ -248,11 +245,6 @@
 
 <!-- contact section ends -->
 
-<!-- blogs section starts  -->
-
-
-<!-- blogs section ends -->
-
 <!-- footer section starts  -->
 
 <footer>
@@ -299,27 +291,12 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- custom js file link  -->
 <script src="{{asset('js/script.js')}}"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
 <script>
-    // $("#data-product").html("aku")
 
     let BASEURL = 'http://127.0.0.1:8000/api/'
 
@@ -339,12 +316,10 @@
         return "";
     }
     let getProduct = async () => {
-        // let data = await fetch(BASEURL+'product')
         $.ajax({
             url: BASEURL+"product",
             type: 'GET',
             success: function(res) {
-                // console.log(res.data)
                 let data = ""
                 res.data.forEach(product => {
                     data += `<div class="box">
@@ -362,16 +337,13 @@
                             </div>`;
                 });
                 $("#data-product").html(data)
-                // alert(res);
             }
         });
     }
 
     let getCk = async () => {
         let isLogin = getCookie('token') != "" ? true : false;
-        // console.log("ck")
         if(isLogin){
-            // let ck = "";
             let ck = "";
             let total = 0;
             $.ajax({
@@ -381,9 +353,7 @@
                     email: getCookie('email')
                 },
                 success: function(res){
-                    console.log(res.data[0]);
                     res.data[0].order_detail.forEach((row) =>{
-                        console.log(row.product[0].id)
                         ck += `<div class="cart-item">
                             <span class="fas fa-times"></span>
                             <img src="${row.product[0].image}" alt="">
@@ -394,7 +364,6 @@
                         </div>`;
                         total += 1;
                     });
-                    // console.log(ck)
                     $("#checkout").html(ck);
                     $("#ckjum").html(total)
                 }
@@ -412,7 +381,6 @@
     $(document).on('click', "#cart", function(e){
             e.preventDefault()
             let id = $(this).data('id');
-            console.log(id);
             let isCookie = getCookie('token') != "" ? true : false;
             if(!isCookie){
                 swal({
@@ -438,9 +406,8 @@
                         id: id,
                         email: getCookie('email')
                     },
+                    
                     success: function(res){
-                        // console.log(res)
-                        console.log(res)
                         if(res.status){
                             swal({ icon: 'success',
                                 title: 'success...',
@@ -451,7 +418,6 @@
                         }
                     }
                 })
-                // console.log(id)
             }
 
         }); 
@@ -463,9 +429,7 @@
         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     }
 
-        $(document).on('click', '#logout', function(e){
-        console.log("ok")
-        
+    $(document).on('click', '#logout', function(e){
         setCookie("email", "", -1)
         swal({ icon: 'success',
                             title: 'success...',
@@ -474,7 +438,6 @@
                             window.location="/sign"
                         });
     });
-
 
 </script>
 
