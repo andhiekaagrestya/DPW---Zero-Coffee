@@ -37,7 +37,7 @@
 @section('script')
 <script>
   $("#tambah").submit(function(e){
-  console.log("oke");
+    
     const form = document.getElementById('tambah');
     const formData = new FormData(form);
 
